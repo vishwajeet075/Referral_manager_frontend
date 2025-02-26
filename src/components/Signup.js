@@ -195,8 +195,8 @@ const Signup = () => {
   
       // Determine the endpoint based on whether a referral token is present
       const endpoint = referral_token
-        ? "http://localhost:5000/referral/signup" // Endpoint for referral signup
-        : "http://localhost:5000/auth/signup";   // Default signup endpoint
+        ? "https://referral-manager-backend.onrender.com/referral/signup" // Endpoint for referral signup
+        : "https://referral-manager-backend.onrender.com/auth/signup";   // Default signup endpoint
   
       // Send the request
       const response = await fetch(endpoint, {

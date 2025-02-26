@@ -113,7 +113,7 @@ const ForgotPassword = () => {
 
     try {
       // Actual API call
-      const response = await fetch('http://localhost:5000/forgot/forgot-password', {
+      const response = await fetch('https://referral-manager-backend.onrender.com/forgot/forgot-password', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

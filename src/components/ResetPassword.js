@@ -87,6 +87,7 @@ const PasswordStrengthBar = styled(LinearProgress)(({ theme, value }) => ({
   },
 }));
 
+ // eslint-disable-next-line 
 const PasswordRequirement = styled(Box)(({ theme, met }) => ({
   display: 'flex',
   alignItems: 'center',
@@ -124,7 +125,7 @@ const ResetPassword = () => {
     const validateToken = async () => {
       try {
         const response = await fetch(
-          `http://localhost:5000/forgot/validate-reset-token/${token}`
+          `https://referral-manager-backend.onrender.com/forgot/validate-reset-token/${token}`
         );
         const data = await response.json();
 
@@ -177,7 +178,7 @@ const ResetPassword = () => {
     setError('');
 
     try {
-      const response = await fetch('http://localhost:5000/forgot/reset-password', {
+      const response = await fetch('https://referral-manager-backend.onrender.com/forgot/reset-password', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

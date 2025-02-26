@@ -1,5 +1,5 @@
 // Base URL for API requests
-const API_BASE_URL = 'http://localhost:5000'; // Change to your backend URL
+const API_BASE_URL = 'https://referral-manager-backend.onrender.com'; // Change to your backend URL
 
 
 // Helper function to get JWT token from localStorage
@@ -12,7 +12,7 @@ const getAuthToken = () => {
 
 export const verifyToken = async (token) => {
     try {
-      const response = await fetch("http://localhost:5000/auth/verify", {
+      const response = await fetch("https://referral-manager-backend.onrender.com/auth/verify", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -143,7 +143,7 @@ export const checkProfile=async ()=>{
     }
      
     try {
-      const response = await fetch('http://localhost:5000/profile/check', {
+      const response = await fetch('https://referral-manager-backend.onrender.com/profile/check', {
         method: 'GET',
         headers: {
           'Authorization': `Bearer ${token}`,
