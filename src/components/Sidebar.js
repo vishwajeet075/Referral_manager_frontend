@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { useLocation, useNavigate } from "react-router-dom";
-import { LogOut, User, Settings } from 'lucide-react';
+import {  useNavigate } from "react-router-dom";
+import { LogOut, User } from 'lucide-react';
 import '../styles/Sidebar.css';
 
 const Sidebar = ({ onSectionChange, activeSection, profileCreated }) => {

@@ -9,6 +9,7 @@ import { checkProfile } from "../utils/api";
 const Dashboard = () => {
   const navigate = useNavigate();
   const location = useLocation();
+   // eslint-disable-next-line 
   const [searchTerm, setSearchTerm] = useState("");
 
 

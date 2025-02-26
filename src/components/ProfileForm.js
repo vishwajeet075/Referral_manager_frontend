@@ -70,6 +70,7 @@ const ProfileForm = ({onCancel }) => {
       profileData.append('links', JSON.stringify(formData.links));
       
       // Send data to the backend
+       // eslint-disable-next-line 
       const response = await createUserProfile(profileData);
       
            
