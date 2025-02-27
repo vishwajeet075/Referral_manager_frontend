@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { X, Plus, Upload, Trash } from 'lucide-react';
 import '../styles/ProfileForm.css';
 import { createUserProfile } from '../utils/api'; // We'll create this function
+import { useNavigate } from 'react-router-dom';
 
 const ProfileForm = ({onCancel }) => {
   const [formData, setFormData] = useState({
@@ -13,6 +14,7 @@ const ProfileForm = ({onCancel }) => {
   const [previewUrl, setPreviewUrl] = useState(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [error, setError] = useState(null);
+  const navigate=useNavigate();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -72,7 +74,9 @@ const ProfileForm = ({onCancel }) => {
       // Send data to the backend
        // eslint-disable-next-line 
       const response = await createUserProfile(profileData);
+
       
+      navigate('/dashboard');
            
 
     } catch (err) {
