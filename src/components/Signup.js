@@ -179,9 +179,11 @@ const Signup = () => {
       return;
     }
   
-    // Extract referral token from the URL path
-    const isReferralSignup = window.location.pathname.match(/\/signup\/[a-zA-Z0-9]+$/);
-const referral_token = isReferralSignup ? window.location.pathname.split('/').pop() : null;
+  // Extract referral token from the URL path
+  const referral_token = window.location.pathname.split('/').pop();
+
+  // Check if the referral token is valid (not "signup" or empty)
+  const isValidReferralToken = referral_token && referral_token !== "signup";
 
 // Rest of the code remains similar...
   
@@ -189,7 +191,7 @@ const referral_token = isReferralSignup ? window.location.pathname.split('/').po
     const user = { name, email, password };
   
     // Add referral token to the user object if it exists
-    if (referral_token) {
+    if (isValidReferralToken) {
       user.referral_token = referral_token;
     }
   
@@ -197,7 +199,7 @@ const referral_token = isReferralSignup ? window.location.pathname.split('/').po
       setIsLoading(true);
   
       // Determine the endpoint based on whether a referral token is present
-      const endpoint = referral_token
+      const endpoint = isValidReferralToken
         ? "https://referral-manager-backend.onrender.com/referral/signup" // Endpoint for referral signup
         : "https://referral-manager-backend.onrender.com/auth/signup";   // Default signup endpoint
   
