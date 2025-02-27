@@ -13,6 +13,7 @@ import {
   Zoom,
   Fade,
   Chip,
+
   CircularProgress,
   Backdrop,
   Snackbar,
@@ -21,6 +22,7 @@ import {
 import { 
   Visibility, 
   VisibilityOff,
+
 } from "@mui/icons-material";
 import "../styles/Signup.css";
 
@@ -54,6 +56,9 @@ const Signup = () => {
   const [loadingMessage, setLoadingMessage] = useState("");
   const [successMessage, setSuccessMessage] = useState("");
   const [messageIndex, setMessageIndex] = useState(0);
+
+  
+  
 
   // Email validation
   useEffect(() => {
@@ -175,13 +180,7 @@ const Signup = () => {
     }
   
     // Extract referral token from the URL path
-    const pathname = window.location.pathname;
-    const pathParts = pathname.split('/');
-    
-    // Only consider it a referral token if the path format is correct
-    // Check if path has enough parts and includes the 'signup' part
-    const hasReferralFormat = pathname.includes('/signup/') && pathParts.length > 2;
-    const referral_token = hasReferralFormat ? pathParts[pathParts.length - 1] : null;
+    const referral_token = window.location.pathname.split('/').pop();
   
     // Prepare the user object
     const user = { name, email, password };
@@ -194,7 +193,7 @@ const Signup = () => {
     try {
       setIsLoading(true);
   
-      // Always use the regular signup endpoint for non-referral signups
+      // Determine the endpoint based on whether a referral token is present
       const endpoint = referral_token
         ? "https://referral-manager-backend.onrender.com/referral/signup" // Endpoint for referral signup
         : "https://referral-manager-backend.onrender.com/auth/signup";   // Default signup endpoint
