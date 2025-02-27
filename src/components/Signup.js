@@ -180,7 +180,10 @@ const Signup = () => {
     }
   
     // Extract referral token from the URL path
-    const referral_token = window.location.pathname.split('/').pop();
+    const isReferralSignup = window.location.pathname.match(/\/signup\/[a-zA-Z0-9]+$/);
+const referral_token = isReferralSignup ? window.location.pathname.split('/').pop() : null;
+
+// Rest of the code remains similar...
   
     // Prepare the user object
     const user = { name, email, password };
