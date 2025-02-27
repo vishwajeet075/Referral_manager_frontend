@@ -23,17 +23,15 @@ const Sidebar = ({ onSectionChange, activeSection, profileCreated }) => {
   }, []);
   
   const handleLogout = () => {
-    // Clear all storage including profile data
     localStorage.clear();
     navigate('/login');
   };
   
   const handleNavigation = (section) => {
-    // Call the parent handler to change the section
     if (onSectionChange) {
       onSectionChange(section);
     }
-    // No need to navigate here as the Dashboard component handles this
+
   };
   
   return (

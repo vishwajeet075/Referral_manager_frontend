@@ -23,7 +23,7 @@ import VisibilityOff from '@mui/icons-material/VisibilityOff';
 
 import { useNavigate } from 'react-router-dom';
 
-// Styled components
+
 const FormPaper = styled(Paper)(({ theme }) => ({
   padding: theme.spacing(5),
   display: 'flex',
@@ -146,7 +146,7 @@ const ResetPassword = () => {
     validateToken();
   }, [token]);
 
-  // Calculate password strength
+ 
   useEffect(() => {
     let strength = 0;
     if (hasLength) strength += 20;

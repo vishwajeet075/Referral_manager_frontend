@@ -1,4 +1,4 @@
-/* Dashboard.css - Enhanced complete layout */
+
 .dashboard-layout {
   display: grid;
   grid-template-columns: 250px 1fr;
@@ -9,7 +9,7 @@
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
 }
 
-/* Sidebar container styling */
+
 .sidebar-container {
   grid-column: 1 / 2;
   height: 100vh;
@@ -33,7 +33,7 @@
   border-radius: 4px;
 }
 
-/* Content container styling */
+
 .content-container {
   grid-column: 2 / 3;
   display: grid;
@@ -42,7 +42,7 @@
   overflow: hidden;
 }
 
-/* Search container styling */
+
 .search-container {
   padding: 0;
   background-color: white;

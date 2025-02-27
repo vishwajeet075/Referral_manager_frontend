@@ -72,7 +72,6 @@ const Dashboard = () => {
 
   const handleSectionChange = (section) => {
     setActiveSection(section);
-    // Update URL to match the section
     navigate(`/${section}`);
   };
 
@@ -92,12 +91,12 @@ const Dashboard = () => {
       storageData.profilePicture = null;
     }
 
-    // Update state with the full data including File objects
+  
     setProfileData(formData);
     setProfileCreated(true);
     setIsFormOpen(false);
 
-    // Save to localStorage (without File objects)
+  
     try {
       localStorage.setItem("userProfile", JSON.stringify(storageData));
     } catch (error) {

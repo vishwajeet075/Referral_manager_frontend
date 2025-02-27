@@ -16,12 +16,11 @@ const StagingArea = ({
 }) => {
   
   const renderContent = () => {
-    // Profile section - always show profile display if created
     if (activeSection === 'profile') {
       return <ProfileDisplay profileData={profileData} />;
     }
     
-    // Dashboard section
+ 
     if (activeSection === 'dashboard') {
       // Show form when form is open
       if (isFormOpen) {

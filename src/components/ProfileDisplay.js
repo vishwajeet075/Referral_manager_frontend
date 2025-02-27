@@ -104,7 +104,7 @@ const ProfileDisplay = () => {
   const [referralLink, setReferralLink] = useState('');
   const [snackbarOpen, setSnackbarOpen] = useState(false);
 
-  // Fetch profile on mount
+
   useEffect(() => {
     const fetchProfile = async () => {
       try {
@@ -124,13 +124,13 @@ const ProfileDisplay = () => {
     fetchProfile();
   }, []);
 
-  // Handle profile picture
+
   const getProfilePictureUrl = () => {
     if (!profileData || !profileData.profilePicture) return null;
     return profileData.profilePicture;
   };
 
-  // Handle referral link generation
+
   const handleGenerateReferralLink = async () => {
     try {
       const response = await generateReferralLink();
@@ -143,7 +143,7 @@ const ProfileDisplay = () => {
     }
   };
 
-  // Copy referral link to clipboard
+
   const copyReferralLink = () => {
     navigator.clipboard.writeText(referralLink);
     setCopied(true);
@@ -151,7 +151,7 @@ const ProfileDisplay = () => {
     setTimeout(() => setCopied(false), 2000);
   };
 
-  // Show loading state
+  
   if (loading) {
     return (
       <Box display="flex" justifyContent="center" alignItems="center" height={400}>
@@ -163,7 +163,7 @@ const ProfileDisplay = () => {
     );
   }
 
-  // Show error state
+
   if (error) {
     return (
       <Alert severity="error" sx={{ borderRadius: 2 }}>
@@ -374,7 +374,7 @@ const ProfileDisplay = () => {
   );
 };
 
-// Helper function to get platform icon
+
 const getPlatformIcon = (platform) => {
   switch (platform.toLowerCase()) {
     case 'linkedin':

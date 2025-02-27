@@ -26,10 +26,10 @@ import {
 } from "@mui/icons-material";
 import "../styles/Signup.css";
 
-// Array of common passwords
+
 const COMMON_PASSWORDS = ["password", "123456", "qwerty", "admin", "welcome", "12345678", "password123", "abc123"];
 
-// Fun loading messages
+
 const LOADING_MESSAGES = [
   "Warming up the servers...",
   "Getting everything ready for you...",
@@ -84,7 +84,7 @@ const Signup = () => {
     const hasSpecial = /[^A-Za-z0-9]/.test(password);
     const isCommon = COMMON_PASSWORDS.includes(password.toLowerCase());
     
-    // Determine the active hint
+
     if (password) {
       if (!hasLength) {
         setActiveHint("Use at least 8 characters");
@@ -123,16 +123,16 @@ const Signup = () => {
       strengthColor = "transparent";
     } else if (validCriteria <= 2) {
       strengthLabel = "Weak";
-      strengthColor = "#f44336"; // Red
+      strengthColor = "#f44336"; 
     } else if (validCriteria <= 4) {
       strengthLabel = "Fair";
-      strengthColor = "#ff9800"; // Orange
+      strengthColor = "#ff9800"; 
     } else if (validCriteria === 5) {
       strengthLabel = "Good";
-      strengthColor = "#2196f3"; // Blue
+      strengthColor = "#2196f3"; 
     } else {
       strengthLabel = "Strong";
-      strengthColor = "#4caf50"; // Green
+      strengthColor = "#4caf50"; 
     }
     
     setPasswordStrength({
@@ -142,7 +142,7 @@ const Signup = () => {
     });
   }, [password]);
 
-  // Loading message rotation
+
   useEffect(() => {
     let messageTimer;
     if (isLoading) {
@@ -172,25 +172,22 @@ const Signup = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-  
-    // Validate before submission
+ 
     if (emailError || passwordStrength.score < 3) {
       setSuccessMessage("Please create a stronger password before submitting.");
       return;
     }
   
-  // Extract referral token from the URL path
+
   const referral_token = window.location.pathname.split('/').pop();
 
-  // Check if the referral token is valid (not "signup" or empty)
+ 
   const isValidReferralToken = referral_token && referral_token !== "signup";
 
-// Rest of the code remains similar...
-  
-    // Prepare the user object
+
     const user = { name, email, password };
   
-    // Add referral token to the user object if it exists
+    
     if (isValidReferralToken) {
       user.referral_token = referral_token;
     }
@@ -198,12 +195,11 @@ const Signup = () => {
     try {
       setIsLoading(true);
   
-      // Determine the endpoint based on whether a referral token is present
       const endpoint = isValidReferralToken
-        ? "https://referral-manager-backend.onrender.com/referral/signup" // Endpoint for referral signup
-        : "https://referral-manager-backend.onrender.com/auth/signup";   // Default signup endpoint
+        ? "https://referral-manager-backend.onrender.com/referral/signup"
+        : "https://referral-manager-backend.onrender.com/auth/signup";   
   
-      // Send the request
+     
       const response = await fetch(endpoint, {
         method: "POST",
         headers: {
@@ -234,7 +230,7 @@ const Signup = () => {
     setSuccessMessage("");
   };
 
-  // Custom strength bar component
+ 
   const PasswordStrengthBar = ({ strength }) => {
     const segments = [1, 2, 3, 4, 5, 6];
     
@@ -256,7 +252,7 @@ const Signup = () => {
     );
   };
 
-  // Loading overlay component
+ 
   const LoadingOverlay = () => (
     <Backdrop
       sx={{
@@ -322,7 +318,7 @@ const Signup = () => {
       disableGutters
       className="signup-container"
     >
-      {/* Success message snackbar */}
+     
       <Snackbar 
         open={!!successMessage} 
         autoHideDuration={6000} 

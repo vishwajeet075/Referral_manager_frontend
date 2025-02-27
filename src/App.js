@@ -5,7 +5,8 @@ import Signup from "./components/Signup";
 import Dashboard from "./components/Dashboard";
 import ForgotPassword from "./components/ForgotPassword";
 import ResetPassword from "./components/ResetPassword";
-import { verifyToken } from "./utils/api"; // Import verification function
+import { verifyToken } from "./utils/api"; 
+import LoadingComponent from "./components/LoadingComponent";
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -29,7 +30,7 @@ function App() {
     checkAuth();
   }, []);
 
-  if (loading) return <h2>Loading...</h2>; // Prevent flicker
+  if (loading) return <LoadingComponent />; 
 
   return (
     <Routes>
@@ -37,7 +38,7 @@ function App() {
       <Route path="/signup" element={<Signup />} />
       <Route path="/forgot" element={<ForgotPassword />} />
       <Route path="/forgot-password" element={<ForgotPassword />} />
-      <Route path="/reset/:resetid" element={<ResetPassword />} />  {/* ✅ Dynamic route */}
+      <Route path="/reset/:resetid" element={<ResetPassword />} />  
       <Route path="/referral/:referralid" element={<Signup/>} />  
 
 

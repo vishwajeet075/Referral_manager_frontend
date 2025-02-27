@@ -68,7 +68,7 @@ const LogoBox = styled(Box)(({ theme }) => ({
   boxShadow: '0 4px 20px rgba(0, 0, 0, 0.2)',
 }));
 
-// Status messages for loading animation
+
 const loadingMessages = [
   "Waking up server...",
   "Locating your account...",
@@ -100,7 +100,7 @@ const ForgotPassword = () => {
     setIsLoading(true);
     setError('');
     
-    // Simulate the loading steps for better UX
+  
     let step = 0;
     const loadingInterval = setInterval(() => {
       if (step < loadingMessages.length - 1) {

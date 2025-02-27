@@ -29,7 +29,7 @@ const Login = ({setIsAuthenticated}) => {
   const [loadingProgress, setLoadingProgress] = useState(0);
   const navigate = useNavigate();
 
-  // Loading animation effect
+
   React.useEffect(() => {
     let timer;
     if (isLoading) {
@@ -247,7 +247,7 @@ const Login = ({setIsAuthenticated}) => {
                   className="forgot-password"
                 >
                   <Link
-                    component="button" // This makes it look like a link but act like a button
+                    component="button" 
                     className="forgot-password-link"
                     onClick={(e) => {
                       e.preventDefault();

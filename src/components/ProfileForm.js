@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { X, Plus, Upload, Trash } from 'lucide-react';
 import '../styles/ProfileForm.css';
-import { createUserProfile } from '../utils/api'; // We'll create this function
+import { createUserProfile } from '../utils/api';
 import { useNavigate } from 'react-router-dom';
 
 const ProfileForm = ({onCancel }) => {
@@ -60,7 +60,7 @@ const ProfileForm = ({onCancel }) => {
     setError(null);
     
     try {
-      // Create a FormData object to handle the file upload
+     
       const profileData = new FormData();
       profileData.append('name', formData.name);
       profileData.append('bio', formData.bio);
@@ -69,15 +69,15 @@ const ProfileForm = ({onCancel }) => {
         profileData.append('profilePicture', formData.profilePicture);
       }
       
-      // Add links as a JSON string
+      
       profileData.append('links', JSON.stringify(formData.links));
       
-      // Send data to the backend
+
        // eslint-disable-next-line 
       const response = await createUserProfile(profileData);
 
       const reloadPage = () => {
-        navigate(0); // This reloads the current route without a full page refresh
+        navigate(0); 
       };
 
       if (response){
