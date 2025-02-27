@@ -76,9 +76,12 @@ const ProfileForm = ({onCancel }) => {
        // eslint-disable-next-line 
       const response = await createUserProfile(profileData);
 
-      
+      const reloadPage = () => {
+        navigate(0); // This reloads the current route without a full page refresh
+      };
+
       if (response){
-        navigate('/profile');
+        reloadPage();
       }
 
            
